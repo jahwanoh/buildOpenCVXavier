@@ -55,6 +55,9 @@ while [ "$1" != "" ]; do
     shift
 done
 
+echo "** Remove other OpenCV first"
+sudo sudo apt-get purge *libopencv*
+
 CMAKE_INSTALL_PREFIX=$INSTALL_DIR
 
 source scripts/jetson_variables.sh
@@ -179,6 +182,12 @@ if [ $DOWNLOAD_OPENCV_CONTRIB == "YES" ] ; then
       -D WITH_OPENGL=ON \
       -D CUDA_NVCC_FLAGS="--expt-relaxed-constexpr" \
       -D WITH_TBB=ON \
+      -D BUILD_opencv_python2=ON \
+      -D BUILD_opencv_python3=ON \
+      -D BUILD_TESTS=OFF \
+      -D BUILD_PERF_TESTS=OFF \
+      -D BUILD_EXAMPLES=OFF \      
+      -D OPENCV_ENABLE_NONFREE=ON \
       -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
       ../
 else
