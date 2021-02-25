@@ -186,7 +186,7 @@ if [ $DOWNLOAD_OPENCV_CONTRIB == "YES" ] ; then
       -D BUILD_opencv_python3=ON \
       -D BUILD_TESTS=OFF \
       -D BUILD_PERF_TESTS=OFF \
-      -D BUILD_EXAMPLES=OFF \      
+      -D BUILD_EXAMPLES=OFF \
       -D OPENCV_ENABLE_NONFREE=ON \
       -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
       ../
